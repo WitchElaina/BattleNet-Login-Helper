@@ -1,0 +1,5 @@
+venv
+__py*
+.*
+config.json
+!.gitignore
