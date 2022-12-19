@@ -5,6 +5,8 @@ import sys
 from mainwindow_ui import Ui_MainWindow
 from add_dialog_ui import Ui_Dialog
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem,  QDialog, QMessageBox, QHeaderView
+from PyQt5.QtGui import QFont
+
 
 def show_msg(content, title='Message'):
     msg = QMessageBox()
@@ -36,6 +38,7 @@ class MainWindowGUI(QMainWindow, Ui_MainWindow):
         self.pushButton_add.clicked.connect(self.add_account)
         self.pushButton_delete.clicked.connect(self.delete_account)
         self.tableWidget.cellChanged.connect(self.edit_account)
+        self.pushButton_login.clicked.connect(self.login)
         # init table
         self.tableWidget.setColumnCount(4)
         self.tableWidget.hideColumn(2)
@@ -90,15 +93,16 @@ class MainWindowGUI(QMainWindow, Ui_MainWindow):
         else:
             self.tableWidget.showColumn(2)
 
-
-
-
-
-
+    def login(self):
+        row = self.tableWidget.currentRow()
+        name = self.tableWidget.item(row, 0).text()
+        login.login(account.get_login_args(name))
 
 
 if __name__ == '__main__':
     app = QApplication([])
+    f = QFont("Microsoft YaHei")
+    app.setFont(f)
     window = MainWindowGUI()
     window.show()
     sys.exit(app.exec_())
