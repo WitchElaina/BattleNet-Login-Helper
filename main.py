@@ -1,3 +1,4 @@
+import webbrowser
 import account
 import login
 import settings
@@ -39,6 +40,7 @@ class MainWindowGUI(QMainWindow, Ui_MainWindow):
         self.pushButton_delete.clicked.connect(self.delete_account)
         self.tableWidget.cellChanged.connect(self.edit_account)
         self.pushButton_login.clicked.connect(self.login)
+        self.pushButton_github.clicked.connect(self.about)
         # init table
         self.tableWidget.setColumnCount(4)
         self.tableWidget.hideColumn(2)
@@ -97,6 +99,9 @@ class MainWindowGUI(QMainWindow, Ui_MainWindow):
         row = self.tableWidget.currentRow()
         name = self.tableWidget.item(row, 0).text()
         login.login(account.get_login_args(name))
+
+    def about(self):
+        webbrowser.open_new('https://github.com/WitchElaina')
 
 
 if __name__ == '__main__':
