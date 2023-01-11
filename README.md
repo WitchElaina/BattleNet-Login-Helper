@@ -1,6 +1,6 @@
 # BattleNet-Login-Helper
 
-战网多账号管理与自动登录助手
+战网多账号管理与自动登录助手，支持Windows/macOS
 
 ![](./imgs/prev.png)
 
