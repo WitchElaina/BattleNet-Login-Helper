@@ -1,3 +1,7 @@
+
+# This Project Has Been Archived, Check [This Rework One]() instead to get better UX
+-------------
+
 # BattleNet-Login-Helper
 
 战网多账号管理与自动登录助手，支持Windows/macOS
